@@ -16,5 +16,5 @@ Getting it working:
 * bower install
 * edit gulpfile.js and set locale to the desired one
 * gulp
-* To verify set the same locale in index.html and run nmp start
+* To verify set the same locale in index.html and run npm start
 
