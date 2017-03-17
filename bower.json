@@ -1,0 +1,25 @@
+{
+    "name": "globalize",
+    "authors": [
+        "Daniel Sandberg <daniel.sandberg@elicit.se>"
+    ],
+    "description": "",
+    "main": "",
+    "license": "MIT",
+    "homepage": "",
+    "ignore": [
+        "**/.*",
+        "node_modules",
+        "bower_components",
+        "test",
+        "tests"
+    ],
+    "dependencies": {
+        "cldr-data": "latest",
+        "globalize": "^1.0.0",
+        "jquery-validation": "latest",
+        "jquery-validation-unobtrusive": "latest",
+        "jquery-validation-globalize": "^1.0.0",
+        "moment": "latest"
+    }
+}

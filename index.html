@@ -1,0 +1,58 @@
+<html>
+
+<head>
+    <title>Globalize demo</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body>
+    <div class="container-fluid">
+        <h2>Globalize demo for the <em id="locale"></em> culture / locale</h2>
+        <h4>Based on code from <a href="https://blog.johnnyreilly.com/">John Reilly</a></h4>
+        <p>This is a the number <strong id="number"></strong> formatted by Globalize:
+            <strong id="numberFormatted"></strong></p>
+        <p>This is a the number <strong id="date"></strong> formatted by Globalize:
+            <strong id="dateFormatted"></strong></p>
+        <form id="testval">
+            <input name="Date" class="input-validation-error" id="Date" aria-required="true" aria-describedby="Date-error" value="2017-03-17 15:30:11" data-val-required="The Date field is required." data-val="true" data-val-date="The field Date must be a date.">
+            <input name="Price" class="k-input valid" id="Price" role="spinbutton" aria-disabled="false" aria-invalid="false
+             " aria-valuenow="12347,50" aria-valuemin="0" aria-describedby="Price-error" type="text" min="0" value="12347" data-role="numerictextbox" data-val="true" data-val-number="The field Nypris must be a number.">
+            <button type="button" id="button" class="btn btn-default">button</button>
+        </form>
+    </div>
+    <script src="bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="test/Scripts/External/globalize/globalize-min.js"></script>
+    <script>
+        $(document).on('click', '#button', function(e) {
+            e.preventDefault();
+            var frm = $(this).closest('form');
+            $.validator.unobtrusive.parse(frm);
+            alert(frm.valid());
+            var validator = frm.validate()
+            console.log(validator.errorList);
+        });
+        var locale = 'sv';
+        var number = 12345.67;
+
+        var date = new Date(2012, 5, 15);
+
+        var globalize = Globalize(locale);
+
+        document.querySelector('#locale').innerText = locale;
+
+        document.querySelector('#number').innerText = number;
+
+        document.querySelector('#date').innerText = date;
+
+        document.querySelector('#numberFormatted').innerText = globalize.formatNumber(number, {
+            minimumFractionDigits: 2,
+            useGrouping: true
+        });
+
+        document.querySelector('#dateFormatted').innerText = globalize.formatDate(date, {
+            date: 'medium'
+        });
+    </script>
+</body>
+
+</html>
